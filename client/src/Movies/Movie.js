@@ -1,11 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
+import {useParams} from 'react-router-dom'
+
 const Movie = (props) => {
   const [movie, setMovie] = useState();
  
+  const { id } = useParams();
+
+
   useEffect(() => {
-    const id = 1;
+  //const id = 1;
+  
     // change ^^^ that line and grab the id from the URL
     // You will NEED to add a dependency array to this effect hook
 
@@ -18,7 +24,8 @@ const Movie = (props) => {
           console.error(error);
         });
 
-  },[]);
+  // Why did you add id? Well, I'm not entirely sure, other than adding it made the warning sign about a dependency array go away.
+  },[id]);
   
   // Uncomment this only when you have moved on to the stretch goals
   // const saveMovie = evt => {
